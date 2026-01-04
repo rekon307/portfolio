@@ -26,7 +26,9 @@ export function Footer() {
               <Linkedin className="h-5 w-5" />
             </a>
             <a
-              href="mailto:contact@example.com"
+              href="https://www.upwork.com/freelancers/agenticworkflows"
+              target="_blank"
+              rel="noopener noreferrer"
               className="text-muted-foreground hover:text-foreground transition-colors"
             >
               <Mail className="h-5 w-5" />

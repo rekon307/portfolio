@@ -64,7 +64,7 @@ export default function Home() {
           I&apos;m always open to discussing new projects, creative ideas, or opportunities.
         </p>
         <div className="flex justify-center gap-4">
-          <a href="mailto:contact@example.com">
+          <a href="https://www.upwork.com/freelancers/agenticworkflows" target="_blank" rel="noopener noreferrer">
             <Button>
               <Mail className="mr-2 h-4 w-4" />
               Get in touch
