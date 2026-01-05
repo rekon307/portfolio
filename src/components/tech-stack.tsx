@@ -69,8 +69,8 @@ export function TechStack() {
                 side="bottom"
                 sideOffset={8}
                 className="px-4 py-3 max-w-[220px] backdrop-blur-xl bg-background/80 border border-border/50 shadow-xl
-                  animate-in fade-in-0 zoom-in-50 slide-in-from-top-4 duration-300
-                  data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=closed]:zoom-out-50 data-[state=closed]:slide-out-to-top-4 data-[state=closed]:duration-200"
+                  animate-in fade-in-0 zoom-in-0 slide-in-from-top-8 duration-500 ease-out
+                  data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=closed]:zoom-out-0 data-[state=closed]:slide-out-to-top-8 data-[state=closed]:duration-300"
               >
                 <div className="flex flex-col gap-2">
                   <div className="flex items-center justify-between gap-3">
