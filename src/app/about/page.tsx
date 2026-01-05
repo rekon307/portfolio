@@ -2,58 +2,116 @@ import { Badge } from "@/components/ui/badge";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Separator } from "@/components/ui/separator";
 
-const skills = {
-  automation: ["n8n", "Make.com", "Python", "Playwright", "Selenium"],
-  ai: ["OpenAI", "Claude", "Gemini", "LangChain", "Vector DBs"],
-  data: ["PostgreSQL", "Airtable", "Google Sheets", "Supabase"],
-  apis: ["REST", "GraphQL", "FastAPI", "Node.js"],
-  deployment: ["AWS Lambda", "Vercel", "Railway", "Docker"],
+const techStack = {
+  "AI & LLMs": ["OpenAI", "Claude", "Gemini", "GPT-4", "GPT-4o", "LangChain", "LlamaIndex", "Ollama", "Vapi", "Bland.ai", "ChromaDB", "Pinecone", "Embeddings", "RAG"],
+  "Automation Platforms": ["n8n", "Make.com", "Zapier", "Airtable Automations", "Google Apps Script", "Power Automate"],
+  "Browser & Scraping": ["Playwright", "Selenium", "Puppeteer", "nodriver", "Scrapy", "BeautifulSoup", "Apify", "Crawlee", "Bright Data"],
+  "Languages": ["Python", "TypeScript", "JavaScript", "SQL", "Bash", "Go"],
+  "Backend Frameworks": ["FastAPI", "Flask", "Django", "Node.js", "Express", "NestJS"],
+  "Frontend Frameworks": ["Next.js", "React", "Vue.js", "Tailwind CSS", "shadcn/ui"],
+  "Databases": ["PostgreSQL", "MySQL", "MongoDB", "SQLite", "Redis", "Supabase", "Firebase", "DynamoDB"],
+  "Cloud & Infrastructure": ["AWS Lambda", "S3", "EC2", "SES", "SQS", "Vercel", "Railway", "Docker", "Kubernetes", "Cloudflare Workers"],
+  "APIs & Integrations": ["REST", "GraphQL", "WebSocket", "OAuth 2.0", "Stripe", "Twilio", "SendGrid", "HubSpot", "Salesforce", "Zoho", "Shopify", "WooCommerce", "Slack", "Discord"],
+  "Data & Analytics": ["Pandas", "NumPy", "Google Sheets API", "Airtable API", "Excel Automation", "Metabase", "Grafana"],
+  "DevOps & Tools": ["Git", "GitHub Actions", "GitLab CI", "Docker Compose", "Linux", "SSH", "Cron", "Terraform"],
 };
 
 const results = [
   {
-    project: "Real Estate AI Voice Agent",
-    result: "80% time reduction, 25% more appointments",
+    client: "Real Estate Agency (Sweden)",
+    project: "AI Voice Agent",
+    result: "25% more appointments booked, 80% reduction in manual outreach time",
   },
   {
-    project: "Dental Lead Qualification",
-    result: "49,000 practices qualified across Germany & Austria",
+    client: "Dental Network (Germany/Austria)",
+    project: "Lead Qualification Pipeline",
+    result: "49,000 dental practices processed and qualified automatically",
   },
   {
+    client: "Hosting Provider",
     project: "Abuse Complaint Automation",
-    result: "AI classification with Gemini, auto-routing to teams",
+    result: "AI-powered classification with Gemini, automatic routing to correct teams",
   },
   {
-    project: "Recruitment AI Assistant",
-    result: "Email summarization, calendar automation, SOP retrieval",
+    client: "Recruitment Agency",
+    project: "AI Assistant",
+    result: "Email summarization, calendar automation, SharePoint SOP retrieval",
   },
   {
-    project: "Trading Webhook Bridge",
-    result: "Real-time TradingView signals to automated execution",
+    client: "Prop Trader",
+    project: "TradingView Webhook Bridge",
+    result: "Real-time signal processing to automated trade execution",
+  },
+];
+
+const process = [
+  {
+    step: "1",
+    title: "Discovery Call",
+    desc: "Map your workflows, find bottlenecks, identify automation opportunities",
+  },
+  {
+    step: "2",
+    title: "Proposal",
+    desc: "Clear scope, timeline, and pricing within 48 hours",
+  },
+  {
+    step: "3",
+    title: "Build",
+    desc: "Rapid development with weekly check-ins and demos",
+  },
+  {
+    step: "4",
+    title: "Deliver",
+    desc: "Full documentation, team training, and handover",
+  },
+  {
+    step: "5",
+    title: "Support",
+    desc: "Optional ongoing maintenance and iteration",
   },
 ];
 
 export default function AboutPage() {
   return (
     <div className="container mx-auto px-4 py-16">
-      <div className="max-w-3xl">
+      <div className="max-w-4xl">
         <h1 className="text-4xl font-bold tracking-tight mb-8">About</h1>
 
         <section className="mb-12">
           <p className="text-xl text-muted-foreground leading-relaxed mb-6">
             5+ years automating business processes. 100+ clients served.
-            I build systems that actually work.
+            400+ execution scripts in production. I build systems that actually work.
           </p>
           <p className="text-lg text-muted-foreground leading-relaxed mb-6">
             I specialize in AI agents, workflow automation, and browser automation.
             From 49,000-lead qualification pipelines to stealth scraping systems with
-            human behavior simulation - I&apos;ve built it.
+            human behavior simulation - I&apos;ve built it and shipped it.
           </p>
           <p className="text-lg text-muted-foreground leading-relaxed">
-            My workspace runs on 407 execution scripts across 14 specialized agents.
-            Twitter automation, multi-platform publishing, video production pipelines,
-            iPhone automation - all production-tested.
+            My workspace runs on 14 specialized agents handling everything from
+            Twitter automation to video production pipelines to iPhone app control.
+            All production-tested, all battle-hardened.
           </p>
+        </section>
+
+        <Separator className="my-12" />
+
+        <section className="mb-12">
+          <h2 className="text-2xl font-bold mb-8">How I Work</h2>
+          <div className="grid gap-4 md:grid-cols-5">
+            {process.map((item) => (
+              <Card key={item.step} className="border-border/40">
+                <CardHeader className="pb-2">
+                  <div className="text-2xl font-bold text-muted-foreground">{item.step}</div>
+                  <CardTitle className="text-base">{item.title}</CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <p className="text-xs text-muted-foreground">{item.desc}</p>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
         </section>
 
         <Separator className="my-12" />
@@ -62,9 +120,10 @@ export default function AboutPage() {
           <h2 className="text-2xl font-bold mb-8">Client Results</h2>
           <div className="space-y-4">
             {results.map((item) => (
-              <Card key={item.project}>
+              <Card key={item.client} className="border-border/40">
                 <CardHeader className="pb-2">
-                  <CardTitle className="text-base font-medium">{item.project}</CardTitle>
+                  <div className="text-sm text-muted-foreground">{item.client}</div>
+                  <CardTitle className="text-base">{item.project}</CardTitle>
                 </CardHeader>
                 <CardContent>
                   <p className="text-sm text-muted-foreground">{item.result}</p>
@@ -78,52 +137,17 @@ export default function AboutPage() {
 
         <section>
           <h2 className="text-2xl font-bold mb-8">Tech Stack</h2>
-
           <div className="space-y-6">
-            <div>
-              <h3 className="text-sm font-medium text-muted-foreground mb-3">Automation</h3>
-              <div className="flex flex-wrap gap-2">
-                {skills.automation.map((skill) => (
-                  <Badge key={skill} variant="secondary">{skill}</Badge>
-                ))}
+            {Object.entries(techStack).map(([category, techs]) => (
+              <div key={category}>
+                <h3 className="text-sm font-medium text-muted-foreground mb-3">{category}</h3>
+                <div className="flex flex-wrap gap-2">
+                  {techs.map((tech) => (
+                    <Badge key={tech} variant="secondary">{tech}</Badge>
+                  ))}
+                </div>
               </div>
-            </div>
-
-            <div>
-              <h3 className="text-sm font-medium text-muted-foreground mb-3">AI & ML</h3>
-              <div className="flex flex-wrap gap-2">
-                {skills.ai.map((skill) => (
-                  <Badge key={skill} variant="secondary">{skill}</Badge>
-                ))}
-              </div>
-            </div>
-
-            <div>
-              <h3 className="text-sm font-medium text-muted-foreground mb-3">Data</h3>
-              <div className="flex flex-wrap gap-2">
-                {skills.data.map((skill) => (
-                  <Badge key={skill} variant="secondary">{skill}</Badge>
-                ))}
-              </div>
-            </div>
-
-            <div>
-              <h3 className="text-sm font-medium text-muted-foreground mb-3">APIs</h3>
-              <div className="flex flex-wrap gap-2">
-                {skills.apis.map((skill) => (
-                  <Badge key={skill} variant="secondary">{skill}</Badge>
-                ))}
-              </div>
-            </div>
-
-            <div>
-              <h3 className="text-sm font-medium text-muted-foreground mb-3">Deployment</h3>
-              <div className="flex flex-wrap gap-2">
-                {skills.deployment.map((skill) => (
-                  <Badge key={skill} variant="secondary">{skill}</Badge>
-                ))}
-              </div>
-            </div>
+            ))}
           </div>
         </section>
       </div>
