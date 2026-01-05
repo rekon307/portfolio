@@ -49,18 +49,33 @@ const services = [
   { icon: Layers, title: "Full-Stack Apps", desc: "Next.js, FastAPI, Supabase" },
 ];
 
-const techStack = {
-  "AI & LLMs": ["OpenAI", "Claude", "Gemini", "GPT-4", "LangChain", "LlamaIndex", "Ollama", "Vapi", "Bland.ai", "ChromaDB", "Pinecone"],
-  "Automation": ["n8n", "Make.com", "Zapier", "Airtable", "Google Apps Script"],
-  "Scraping": ["Playwright", "Selenium", "Puppeteer", "nodriver", "Scrapy", "BeautifulSoup", "Apify"],
-  "Languages": ["Python", "TypeScript", "JavaScript", "SQL", "Bash"],
-  "Frameworks": ["Next.js", "React", "FastAPI", "Flask", "Node.js", "Express"],
-  "Databases": ["PostgreSQL", "MySQL", "MongoDB", "SQLite", "Redis", "Supabase", "Firebase"],
-  "Cloud": ["AWS Lambda", "S3", "EC2", "Vercel", "Railway", "Docker", "Cloudflare"],
-  "APIs": ["REST", "GraphQL", "WebSocket", "OAuth", "Stripe", "Twilio", "HubSpot", "Salesforce", "Shopify"],
-  "Data": ["Pandas", "NumPy", "Google Sheets API", "Airtable API", "Excel"],
-  "DevOps": ["Git", "GitHub Actions", "CI/CD", "Linux", "Docker", "Cron"],
-};
+// Tech icons using devicon CDN
+const techIcons = [
+  { name: "Python", icon: "python/python-original" },
+  { name: "TypeScript", icon: "typescript/typescript-original" },
+  { name: "JavaScript", icon: "javascript/javascript-original" },
+  { name: "React", icon: "react/react-original" },
+  { name: "Next.js", icon: "nextjs/nextjs-original" },
+  { name: "Node.js", icon: "nodejs/nodejs-original" },
+  { name: "FastAPI", icon: "fastapi/fastapi-original" },
+  { name: "Flask", icon: "flask/flask-original" },
+  { name: "PostgreSQL", icon: "postgresql/postgresql-original" },
+  { name: "MongoDB", icon: "mongodb/mongodb-original" },
+  { name: "Redis", icon: "redis/redis-original" },
+  { name: "Docker", icon: "docker/docker-original" },
+  { name: "AWS", icon: "amazonwebservices/amazonwebservices-original-wordmark" },
+  { name: "Git", icon: "git/git-original" },
+  { name: "GitHub", icon: "github/github-original" },
+  { name: "Linux", icon: "linux/linux-original" },
+  { name: "Selenium", icon: "selenium/selenium-original" },
+  { name: "Pandas", icon: "pandas/pandas-original" },
+  { name: "Firebase", icon: "firebase/firebase-original" },
+  { name: "Supabase", icon: "supabase/supabase-original" },
+  { name: "Vercel", icon: "vercel/vercel-original" },
+  { name: "Tailwind", icon: "tailwindcss/tailwindcss-original" },
+  { name: "GraphQL", icon: "graphql/graphql-plain" },
+  { name: "Bash", icon: "bash/bash-original" },
+];
 
 export default function Home() {
   const featuredProjects = projects.filter((p) => p.featured);
@@ -143,14 +158,20 @@ export default function Home() {
       {/* Tech Stack */}
       <section className="mb-20">
         <h2 className="text-2xl font-bold mb-8 text-center">Tech Stack</h2>
-        <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-          {Object.entries(techStack).map(([category, techs]) => (
-            <div key={category}>
-              <h3 className="text-sm font-medium text-muted-foreground mb-3">{category}</h3>
-              <div className="flex flex-wrap gap-2">
-                {techs.map((tech) => (
-                  <Badge key={tech} variant="secondary">{tech}</Badge>
-                ))}
+        <div className="flex flex-wrap justify-center gap-8 max-w-4xl mx-auto">
+          {techIcons.map((tech) => (
+            <div
+              key={tech.name}
+              className="group flex flex-col items-center gap-2"
+              title={tech.name}
+            >
+              <div className="w-14 h-14 flex items-center justify-center rounded-xl bg-secondary/30 group-hover:bg-secondary/60 transition-colors">
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src={`https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/${tech.icon}.svg`}
+                  alt={tech.name}
+                  className="w-9 h-9"
+                />
               </div>
             </div>
           ))}
