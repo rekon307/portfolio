@@ -16,20 +16,20 @@ const techIcons = [
   { name: "Next.js", icon: "nextjs/nextjs-original", desc: "Production websites, SSR apps", category: "Frontend" },
   { name: "Node.js", icon: "nodejs/nodejs-original", desc: "Backend services, CLI tools", category: "Backend" },
   { name: "FastAPI", icon: "fastapi/fastapi-original", desc: "High-performance APIs, async services", category: "Backend" },
-  { name: "Flask", icon: "flask/flask-original", desc: "Lightweight APIs, webhooks", category: "Backend" },
+  { name: "Flask", icon: "flask/flask-original", desc: "Lightweight APIs, webhooks", category: "Backend", invert: true },
   { name: "PostgreSQL", icon: "postgresql/postgresql-original", desc: "Primary database, complex queries", category: "Database" },
   { name: "MongoDB", icon: "mongodb/mongodb-original", desc: "Document storage, flexible schemas", category: "Database" },
   { name: "Redis", icon: "redis/redis-original", desc: "Caching, real-time data, queues", category: "Database" },
   { name: "Docker", icon: "docker/docker-original", desc: "Containerized deployments, dev environments", category: "DevOps" },
   { name: "AWS", icon: "amazonwebservices/amazonwebservices-original-wordmark", desc: "Lambda, S3, SES, EC2", category: "Cloud" },
   { name: "Git", icon: "git/git-original", desc: "Version control, collaboration", category: "DevOps" },
-  { name: "GitHub", icon: "github/github-original", desc: "CI/CD, Actions, collaboration", category: "DevOps" },
+  { name: "GitHub", icon: "github/github-original", desc: "CI/CD, Actions, collaboration", category: "DevOps", invert: true },
   { name: "Linux", icon: "linux/linux-original", desc: "Server management, shell scripting", category: "DevOps" },
   { name: "Selenium", icon: "selenium/selenium-original", desc: "Browser automation, testing", category: "Automation" },
   { name: "Pandas", icon: "pandas/pandas-original", desc: "Data analysis, ETL pipelines", category: "Data" },
   { name: "Firebase", icon: "firebase/firebase-original", desc: "Auth, real-time databases", category: "Cloud" },
   { name: "Supabase", icon: "supabase/supabase-original", desc: "Postgres + auth + storage", category: "Cloud" },
-  { name: "Vercel", icon: "vercel/vercel-original", desc: "Edge deployments, serverless", category: "Cloud" },
+  { name: "Vercel", icon: "vercel/vercel-original", desc: "Edge deployments, serverless", category: "Cloud", invert: true },
   { name: "Tailwind", icon: "tailwindcss/tailwindcss-original", desc: "Rapid UI development", category: "Frontend" },
   { name: "GraphQL", icon: "graphql/graphql-plain", desc: "Flexible APIs, efficient queries", category: "Backend" },
   { name: "Bash", icon: "bash/bash-original", desc: "Automation scripts, system tasks", category: "DevOps" },
@@ -60,7 +60,7 @@ export function TechStack() {
                     <img
                       src={`https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/${tech.icon}.svg`}
                       alt={tech.name}
-                      className="w-9 h-9"
+                      className={`w-9 h-9 ${"invert" in tech && tech.invert ? "invert" : ""}`}
                     />
                   </div>
                 </div>
