@@ -143,7 +143,7 @@ export default function Home() {
       {/* Tech Stack */}
       <section className="mb-20">
         <h2 className="text-2xl font-bold mb-8 text-center">Tech Stack</h2>
-        <div className="space-y-6">
+        <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
           {Object.entries(techStack).map(([category, techs]) => (
             <div key={category}>
               <h3 className="text-sm font-medium text-muted-foreground mb-3">{category}</h3>
