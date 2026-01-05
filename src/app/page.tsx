@@ -1,7 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
 import { ProjectCard } from "@/components/project-card";
+import { TechStack } from "@/components/tech-stack";
 import { projects } from "@/lib/projects";
 import { ArrowRight, Github, Bot, Workflow, Globe, Database, Code, Layers } from "lucide-react";
 import Link from "next/link";
@@ -49,33 +49,6 @@ const services = [
   { icon: Layers, title: "Full-Stack Apps", desc: "Next.js, FastAPI, Supabase" },
 ];
 
-// Tech icons using devicon CDN
-const techIcons = [
-  { name: "Python", icon: "python/python-original" },
-  { name: "TypeScript", icon: "typescript/typescript-original" },
-  { name: "JavaScript", icon: "javascript/javascript-original" },
-  { name: "React", icon: "react/react-original" },
-  { name: "Next.js", icon: "nextjs/nextjs-original" },
-  { name: "Node.js", icon: "nodejs/nodejs-original" },
-  { name: "FastAPI", icon: "fastapi/fastapi-original" },
-  { name: "Flask", icon: "flask/flask-original" },
-  { name: "PostgreSQL", icon: "postgresql/postgresql-original" },
-  { name: "MongoDB", icon: "mongodb/mongodb-original" },
-  { name: "Redis", icon: "redis/redis-original" },
-  { name: "Docker", icon: "docker/docker-original" },
-  { name: "AWS", icon: "amazonwebservices/amazonwebservices-original-wordmark" },
-  { name: "Git", icon: "git/git-original" },
-  { name: "GitHub", icon: "github/github-original" },
-  { name: "Linux", icon: "linux/linux-original" },
-  { name: "Selenium", icon: "selenium/selenium-original" },
-  { name: "Pandas", icon: "pandas/pandas-original" },
-  { name: "Firebase", icon: "firebase/firebase-original" },
-  { name: "Supabase", icon: "supabase/supabase-original" },
-  { name: "Vercel", icon: "vercel/vercel-original" },
-  { name: "Tailwind", icon: "tailwindcss/tailwindcss-original" },
-  { name: "GraphQL", icon: "graphql/graphql-plain" },
-  { name: "Bash", icon: "bash/bash-original" },
-];
 
 export default function Home() {
   const featuredProjects = projects.filter((p) => p.featured);
@@ -155,28 +128,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Tech Stack */}
-      <section className="mb-20">
-        <h2 className="text-2xl font-bold mb-8 text-center">Tech Stack</h2>
-        <div className="flex flex-wrap justify-center gap-8 max-w-4xl mx-auto">
-          {techIcons.map((tech) => (
-            <div
-              key={tech.name}
-              className="group flex flex-col items-center gap-2"
-              title={tech.name}
-            >
-              <div className="w-14 h-14 flex items-center justify-center rounded-xl bg-secondary/30 group-hover:bg-secondary/60 transition-colors">
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img
-                  src={`https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/${tech.icon}.svg`}
-                  alt={tech.name}
-                  className="w-9 h-9"
-                />
-              </div>
-            </div>
-          ))}
-        </div>
-      </section>
+      <TechStack />
 
       {/* Featured Projects */}
       <section className="mb-16">
