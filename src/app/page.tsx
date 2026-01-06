@@ -2,6 +2,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { ProjectCard } from "@/components/project-card";
 import { TechStack } from "@/components/tech-stack";
+import { FloatingIcons } from "@/components/floating-icons";
 import { projects } from "@/lib/projects";
 import { ArrowRight, Github, Bot, Workflow, Globe, Database, Code, Layers } from "lucide-react";
 import Link from "next/link";
@@ -67,14 +68,15 @@ export default function Home() {
       </div>
 
       {/* Hero Section */}
-      <section className="mb-20 text-center">
-        <h1 className="text-4xl md:text-5xl font-bold tracking-tight mb-6">
+      <section className="mb-20 text-center relative">
+        <FloatingIcons />
+        <h1 className="text-4xl md:text-5xl font-bold tracking-tight mb-6 relative z-10">
           I automate businesses. Yours could be next.
         </h1>
-        <p className="text-xl text-muted-foreground mb-8 max-w-2xl mx-auto">
+        <p className="text-xl text-muted-foreground mb-8 max-w-2xl mx-auto relative z-10">
           AI agents, workflow automation, browser automation. From 49,000-lead pipelines to stealth scraping systems.
         </p>
-        <div className="flex justify-center gap-4">
+        <div className="flex justify-center gap-4 relative z-10">
           <a href="https://www.upwork.com/freelancers/agenticworkflows" target="_blank" rel="noopener noreferrer">
             <Button size="lg">
               Let&apos;s Talk
