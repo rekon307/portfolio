@@ -3,15 +3,11 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { ProjectCard } from "@/components/project-card";
 import { TechStack } from "@/components/tech-stack";
 import { FloatingIcons } from "@/components/floating-icons";
+import { AnimatedStats } from "@/components/animated-stats";
 import { projects } from "@/lib/projects";
 import { ArrowRight, Github, Bot, Workflow, Globe, Database, Code, Layers } from "lucide-react";
 import Link from "next/link";
 
-const stats = [
-  { label: "Years Experience", value: "5+" },
-  { label: "Clients Served", value: "100+" },
-  { label: "Scripts Built", value: "400+" },
-];
 
 const clientResults = [
   {
@@ -58,14 +54,7 @@ export default function Home() {
   return (
     <div className="container mx-auto px-4 py-16">
       {/* Stats Bar */}
-      <div className="flex justify-center gap-8 md:gap-16 mb-12">
-        {stats.map((stat) => (
-          <div key={stat.label} className="text-center">
-            <div className="text-3xl md:text-4xl font-bold">{stat.value}</div>
-            <div className="text-sm text-muted-foreground">{stat.label}</div>
-          </div>
-        ))}
-      </div>
+      <AnimatedStats />
 
       {/* Hero Section */}
       <section className="mb-20 text-center relative">
